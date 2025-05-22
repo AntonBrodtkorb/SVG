@@ -1,0 +1,16 @@
+<svg width="400" height="100" xmlns="http://www.w3.org/2000/svg">
+  <style type="text/css">
+    @font-face {
+      font-family: "MyCustomFont";
+      src: url("FiraSans-Light.ttf");
+    }
+
+    text {
+      font-family: "MyCustomFont";
+    }
+  </style>
+
+  <text x="10" y="50" font-size="24" fill="black">
+    Hello, Custom Font!
+  </text>
+</svg>

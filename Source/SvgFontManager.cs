@@ -78,6 +78,8 @@ namespace Svg
         /// <returns>An <see cref="FontFamily"/> of the loaded font or null is not located.</returns>
         public FontFamily FindFont(string name)
         {
+            Console.WriteLine($"FindFont requested: {name}");
+
             if (name == null)
                 return null;
 
@@ -102,6 +104,26 @@ namespace Svg
 
             return null;
         }
+
+        public static void RegisterFont(string fontName, string fontPath)
+{
+                    Console.WriteLine($"Registering font: {fontName}  from {fontPath}");
+
+    if (!System.IO.File.Exists(fontPath))
+        throw new System.IO.FileNotFoundException("Font file not found", fontPath);
+
+    if (!LocalizedFamilyNames.Any(names => names.Contains(fontName)))
+    {
+        LocalizedFamilyNames.Add(new[] { fontName });
+    }
+
+    if (!PrivateFontPathList.Contains(fontPath))
+    {
+                Console.WriteLine($"Loading font: {fontPath}");
+
+                PrivateFontPathList.Add(fontPath);
+    }
+}
 
         public void Dispose()
         {
